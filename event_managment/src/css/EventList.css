@@ -1,0 +1,47 @@
+/* Container for the event list */
+.event-list-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Event card styling */
+.event-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.event-card h3 {
+    margin-top: 0;
+}
+
+.event-card p {
+    margin: 5px 0;
+}
+
+.event-card ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.event-card li {
+    padding: 5px 0;
+}
+
+/* Message styling */
+.message {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.message.error {
+    color: red;
+    border: 1px solid red;
+    background-color: #ffeaea;
+}
