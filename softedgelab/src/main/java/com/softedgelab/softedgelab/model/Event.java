@@ -17,12 +17,7 @@ public class Event {
     private String date;
     private String location;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "event_attendees",
-            joinColumns = @JoinColumn(name = "event_id"),
-            inverseJoinColumns = @JoinColumn(name = "attendee_id")
-    )
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Attendee> attendees;
 

@@ -24,9 +24,8 @@ public class AttendeeService {
         if (eventOptional.isPresent()) {
             Event event = eventOptional.get();
             attendee.setEvent(event);
-            // Save the attendee
             Attendee savedAttendee = attendeeRepository.save(attendee);
-            // Add the attendee to the event's attendees list
+
             if (event.getAttendees() == null) {
                 event.setAttendees(new ArrayList<>());
             }
