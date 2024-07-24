@@ -43,7 +43,7 @@ public class EventService {
             event.setDescription(updatedEvent.getDescription());
             event.setDate(updatedEvent.getDate());
             event.setLocation(updatedEvent.getLocation());
-            
+
             eventRepository.save(event);
             return Optional.of(event);
         }
