@@ -47,8 +47,8 @@ This repository contains a comprehensive Event Management System application bui
 ### Backend Setup (Spring Boot)
 1. Clone the repository:
     ```
-    git clone <repository_url>
-    cd <repository_name>/backend/softedgelab
+    git clone https://github.com/Chathuni124/Event-Managment-System
+    cd Event-Managment-System/softedgelab
     ```
 
 2. Create a MySQL database:
