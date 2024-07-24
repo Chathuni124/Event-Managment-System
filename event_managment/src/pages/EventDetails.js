@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams } from 'react-router-dom';
-// import '../css/EventDetails.css'; // Import the external CSS file
+import { useParams, Link } from 'react-router-dom';
+import '../css/EventDetails.css'; 
 
 const EventDetails = () => {
-    const { id } = useParams(); // Get the event ID from URL parameters
+    const { id } = useParams(); 
     const [event, setEvent] = useState(null);
     const [error, setError] = useState(null);
 
@@ -41,8 +41,12 @@ const EventDetails = () => {
             ) : (
                 <p>No attendees listed</p>
             )}
+            <Link to={`/event-details/${id}/add-attendee`}>
+                <button className="add-attendee-button">Add Attendee</button>
+            </Link>
         </div>
     );
 };
 
 export default EventDetails;
+
