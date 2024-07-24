@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../css/EventList.css'; 
-import { useNavigate } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate } from 'react-router-dom'; 
 
 const EventList = () => {
-    const [events, setEvents] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(null);
-    const [successMessage, setSuccessMessage] = useState(null); // Added state for success message
-    const navigate = useNavigate(); // Hook for navigation
+    const [events,setEvents] = useState([]);
+    const [loading,setLoading] = useState(true);
+    const [error,setError] = useState(null);
+    const [successMessage,setSuccessMessage] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch events from the backend
-        const fetchEvents = async () => {
+        const fetchEvents = async() => {
             try {
                 const response = await axios.get('http://localhost:8080/api/events');
                 setEvents(response.data);
@@ -27,24 +26,24 @@ const EventList = () => {
     }, []);
 
     const handleUpdate = (eventId) => {
-        navigate(`/update-event/${eventId}`); // Navigate to update form
+        navigate(`/update-event/${eventId}`); 
     };
 
     const handleDelete = async (eventId) => {
         try {
             await axios.delete(`http://localhost:8080/api/events/${eventId}`);
-            setEvents(events.filter(event => event.id !== eventId)); // Remove event from state
-            setSuccessMessage('Event deleted successfully!'); // Set the success message
+            setEvents(events.filter(event => event.id !== eventId)); 
+            setSuccessMessage('Event deleted successfully!'); 
             setTimeout(() => {
-                setSuccessMessage(null); // Clear the success message after a short delay
-            }, 3000); // Adjust delay as needed
+                setSuccessMessage(null);
+            }, 3000); 
         } catch (error) {
             setError('Error deleting event');
         }
     };
 
     const handleViewDetails = (eventId) => {
-        navigate(`/event-details/${eventId}`); // Navigate to event details view
+        navigate(`/event-details/${eventId}`); 
     };
 
     if (loading) return <p>Loading events...</p>;
@@ -75,4 +74,3 @@ const EventList = () => {
 };
 
 export default EventList;
-
